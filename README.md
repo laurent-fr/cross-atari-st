@@ -22,7 +22,7 @@ This program does 2 things :
 * convert a sprite in .png format into Atari ST Low display format encoding
 * extract the palette values from the .png
 
-The .png must be color indexed, only the 16 first colors will be used
+The .png must be color indexed, only the 16 first colors will be used. To manipulate an existing .png I found that AseSprite ( https://github.com/aseprite/aseprite ) was simpler to use than Gimp.
 
 To install, first ensure that you have libpng devel packages on your system, then : 
 
