@@ -76,8 +76,7 @@ $ png2sprite -i donuts.png -p
  0xf71,
  0xff7
 ```
-
-## Examples
+## Examples
 
 ### Hello
 
