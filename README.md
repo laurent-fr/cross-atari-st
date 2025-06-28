@@ -5,9 +5,9 @@ A script to setup the tools you need to code in C & ASM for the Atari ST !
 ## Install the tools
 
 The script will install in $HOME/cross-atari-st : 
-* GCC M68K from https://tho-otto.de
-* VASM from http://phoenix.owl.de (Motorola syntax)
-* LibcMini from Freemint project
+* GCC M68K from https://tho-otto.de/crossmint.php
+* VASM from http://sun.hasenbraten.de/vasm/ (Motorola syntax)
+* LibcMini from Freemint project https://github.com/freemint/libcmini
 
 ```
 cd install
