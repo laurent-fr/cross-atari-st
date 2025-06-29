@@ -162,10 +162,10 @@ void export_sprite(struct raw_image_s *img,int x0,int y0,int w, int h) {
         for(int x=0;x<w;x++ ) {
               
             if  (!(x%16)) {
-                *spriteptr=*(spriteptr+1)=*(spriteptr+2)=*(spriteptr+3)=0;
                 if (x>x0) {
                     spriteptr+=4;
                 }
+                *spriteptr=*(spriteptr+1)=*(spriteptr+2)=*(spriteptr+3)=0;
             }
 
             png_bytep px = &row[x+x0]; 
@@ -179,8 +179,8 @@ void export_sprite(struct raw_image_s *img,int x0,int y0,int w, int h) {
             col_index >>= 1;
             *(spriteptr+3) |= col_index&1;
 
-	    if (x<(w-1)) { // do not shift last pixel
-            	*spriteptr<<=1;
+	    if ((x%16)!=15) { // do not shift last pixel of each 16px word
+            *spriteptr<<=1;
 	    	*(spriteptr+1)<<=1;
 	    	*(spriteptr+2)<<=1;
 	    	*(spriteptr+3)<<=1;
