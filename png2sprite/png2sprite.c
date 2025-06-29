@@ -157,7 +157,7 @@ void export_sprite(struct raw_image_s *img,int x0,int y0,int w, int h) {
     unsigned short *spriteptr=sprite;
 
     for(int y=0;y<h;y++) {
-        png_bytep row = img->row_pointers[y];
+        png_bytep row = img->row_pointers[y+y0];
         
         for(int x=0;x<w;x++ ) {
               
@@ -180,9 +180,9 @@ void export_sprite(struct raw_image_s *img,int x0,int y0,int w, int h) {
             *(spriteptr+3) |= col_index&1;
 
             *spriteptr<<=1;
-			*(spriteptr+1)<<=1;
-			*(spriteptr+2)<<=1;
-			*(spriteptr+3)<<=1;
+	    *(spriteptr+1)<<=1;
+	    *(spriteptr+2)<<=1;
+	    *(spriteptr+3)<<=1;
             
         }
         spriteptr+=4; 
