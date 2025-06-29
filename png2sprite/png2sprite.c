@@ -179,10 +179,12 @@ void export_sprite(struct raw_image_s *img,int x0,int y0,int w, int h) {
             col_index >>= 1;
             *(spriteptr+3) |= col_index&1;
 
-            *spriteptr<<=1;
-	    *(spriteptr+1)<<=1;
-	    *(spriteptr+2)<<=1;
-	    *(spriteptr+3)<<=1;
+	    if (x<(w-1)) { // do not shift last pixel
+            	*spriteptr<<=1;
+	    	*(spriteptr+1)<<=1;
+	    	*(spriteptr+2)<<=1;
+	    	*(spriteptr+3)<<=1;
+	   }
             
         }
         spriteptr+=4; 
