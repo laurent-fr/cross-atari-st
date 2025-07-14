@@ -124,13 +124,13 @@ int load_png(char *filename, struct raw_image_s *img ) {
     if (!img_allocate(img, width, height, png_get_rowbytes(png_ptr,info_ptr)))
         return 0;
 
-    for(int i=1;i<palette_count;i ++) {
-        if (i>16) break;
+    for(int i=0;i<palette_count;i ++) {
+        if (i>=16) break;
 
         png_color* col = &palette[i];
-        img->palette[i-1].R=col->red;
-        img->palette[i-1].G=col->green;
-        img->palette[i-1].B=col->blue;
+        img->palette[i].R=col->red;
+        img->palette[i].G=col->green;
+        img->palette[i].B=col->blue;
     }
     
    
@@ -169,7 +169,7 @@ void export_sprite(struct raw_image_s *img,int x0,int y0,int w, int h) {
             }
 
             png_bytep px = &row[x+x0]; 
-            int col_index = (*px -1) & 0xf ;
+            int col_index = (*px) & 0xf ;
 
             *spriteptr |= col_index&1;
             col_index >>= 1;
@@ -187,7 +187,7 @@ void export_sprite(struct raw_image_s *img,int x0,int y0,int w, int h) {
 	   }
             
         }
-        spriteptr+=4; 
+        spriteptr+=4;
     }
 
     for(int i=0;i<num_bytes/2;i+=4) {
